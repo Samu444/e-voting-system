@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/Samu444/e-voting-system#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "ethers": "^6.15.0",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.3",
     "web3": "^4.16.0"
   }
