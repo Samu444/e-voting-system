@@ -1,10 +1,13 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
-const voteSchema = new mongoose.Schema({
-    voter: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    electionId: Number,
-    candidateId: Number,
-    blockchainTxId: String
-}, { timestamps: true });
+const voteSchema = new mongoose.Schema(
+  {
+    electionId: { type: mongoose.Schema.Types.ObjectId, ref: 'Election', required: true },
+    voterId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    candidateId: { type: mongoose.Schema.Types.ObjectId, required: true },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model("Vote", voteSchema);
+const Vote = mongoose.model('Vote', voteSchema);
+export default Vote;

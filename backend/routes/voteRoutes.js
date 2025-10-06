@@ -1,9 +1,12 @@
-const express = require("express");
+import express from 'express';
+import { castVote, getVotes } from '../controllers/voteController.js';
+
 const router = express.Router();
-const { castVote } = require("../controllers/voteController");
-const authMiddleware = require("../middleware/authMiddleware");
-const roleMiddleware = require("../middleware/roleMiddleware");
 
-router.post("/vote", authMiddleware, roleMiddleware("voter"), castVote);
+// Cast a vote
+router.post('/', castVote);
 
-module.exports = router;
+// Get all votes (for admin or results)
+router.get('/', getVotes);
+
+export default router;
